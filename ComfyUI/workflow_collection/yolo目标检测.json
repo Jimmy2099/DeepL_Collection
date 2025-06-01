@@ -1,0 +1,365 @@
+{
+  "id": "d8a15b56-d948-4e0c-85a5-30bd174609a8",
+  "revision": 0,
+  "last_node_id": 12,
+  "last_link_id": 18,
+  "nodes": [
+    {
+      "id": 11,
+      "type": "YOLOWorld_ModelLoader",
+      "pos": [
+        44.64747619628906,
+        -346.35833740234375
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "YOLOWORLDMODEL",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "YOLOWorld_ModelLoader"
+      },
+      "widgets_values": [
+        "yolo_world/v2-x",
+        "person,bicycle,car,motorcycle,airplane,bus,train,truck,boat,traffic light,fire hydrant,stop sign,parking meter,bench,bird,cat,dog,horse,sheep,cow,elephant,bear,zebra,giraffe,backpack,umbrella,handbag,tie,suitcase,frisbee,skis,snowboard,sports ball,kite,baseball bat,baseball glove,skateboard,surfboard,tennis racket,bottle,wine glass,cup,fork,knife,spoon,bowl,banana,apple,sandwich,orange,broccoli,carrot,hot dog,pizza,donut,cake,chair,couch,potted plant,bed,dining table,toilet,tv,laptop,mouse,remote,keyboard,cell phone,microwave,oven,toaster,sink,refrigerator,book,clock,vase,scissors,teddy bear,hair drier,toothbrush"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "YOLOWorld",
+      "pos": [
+        209.7096405029297,
+        -117.24349212646484
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "YOLOWORLDMODEL",
+          "link": 13
+        },
+        {
+          "label": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "label": "detections",
+          "name": "detections",
+          "type": "DETECTIONS",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "YOLOWorld"
+      },
+      "widgets_values": [
+        0.05,
+        0.3,
+        false
+      ]
+    },
+    {
+      "id": 12,
+      "type": "YOLOWorld_Display",
+      "pos": [
+        286.53668212890625,
+        154.87681579589844
+      ],
+      "size": [
+        315,
+        150
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 17
+        },
+        {
+          "label": "detections",
+          "name": "detections",
+          "type": "DETECTIONS",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "label": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "YOLOWorld_Display"
+      },
+      "widgets_values": [
+        true,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "id": 1,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        -153.33901977539062,
+        -18.5440673828125
+      ],
+      "size": [
+        252.056640625,
+        760.1005859375
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "meta_batch",
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager"
+        },
+        {
+          "label": "vae",
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "IMAGE",
+          "name": "IMAGE",
+          "shape": 3,
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            5,
+            14,
+            17
+          ]
+        },
+        {
+          "label": "frame_count",
+          "name": "frame_count",
+          "shape": 3,
+          "type": "INT"
+        },
+        {
+          "label": "audio",
+          "name": "audio",
+          "shape": 3,
+          "type": "AUDIO"
+        },
+        {
+          "label": "video_info",
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "widgets_values": {
+        "video": "52729d6df02402e8808e173a5eead6c1651ae08de1b764ef45d65a4e76775e6c.mp4",
+        "force_rate": 0,
+        "force_size": "Disabled",
+        "custom_width": 0,
+        "custom_height": 0,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "format": "AnimateDiff",
+        "choose video to upload": "image",
+        "videopreview": {
+          "paused": true,
+          "hidden": false,
+          "params": {
+            "force_rate": 0,
+            "filename": "52729d6df02402e8808e173a5eead6c1651ae08de1b764ef45d65a4e76775e6c.mp4",
+            "select_every_nth": 1,
+            "frame_load_cap": 0,
+            "format": "video/mp4",
+            "skip_first_frames": 0,
+            "type": "input"
+          }
+        }
+      }
+    },
+    {
+      "id": 6,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        830.0843505859375,
+        -337.2733459472656
+      ],
+      "size": [
+        553.981201171875,
+        1297.2999267578125
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 18
+        },
+        {
+          "label": "audio",
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO"
+        },
+        {
+          "label": "meta_batch",
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager"
+        },
+        {
+          "label": "vae",
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "Filenames",
+          "name": "Filenames",
+          "shape": 3,
+          "type": "VHS_FILENAMES"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 8,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "paused": false,
+          "hidden": false,
+          "params": {
+            "filename": "AnimateDiff_00009_ykcng_1748767111.mp4",
+            "workflow": "AnimateDiff_00009.png",
+            "fullpath": "/data/ComfyUI/personal/aa9d150358e38f4ee68c344222d743f1/output/AnimateDiff_00009.mp4",
+            "format": "video/h264-mp4",
+            "subfolder": "",
+            "type": "output",
+            "frame_rate": 8
+          }
+        }
+      }
+    }
+  ],
+  "links": [
+    [
+      13,
+      11,
+      0,
+      10,
+      0,
+      "YOLOWORLDMODEL"
+    ],
+    [
+      14,
+      1,
+      0,
+      10,
+      1,
+      "IMAGE"
+    ],
+    [
+      15,
+      10,
+      0,
+      12,
+      1,
+      "DETECTIONS"
+    ],
+    [
+      17,
+      1,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      18,
+      12,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.598950000000001,
+      "offset": [
+        1040.6909869697304,
+        353.9394473293363
+      ]
+    },
+    "ue_links": [],
+    "0246.VERSION": [
+      0,
+      0,
+      4
+    ],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
