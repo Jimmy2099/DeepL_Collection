@@ -1,0 +1,6 @@
+[submodule "thirdparty/DiT"]
+	path = thirdparty/DiT
+	url = https://github.com/facebookresearch/DiT.git
+[submodule "thirdparty/unsloth"]
+	path = thirdparty/unsloth
+	url = https://github.com/unslothai/unsloth.git
